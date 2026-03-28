@@ -8,11 +8,12 @@ class CustomerSupportEnv:
         self.tasks = load_tasks()
         self.current_task = None
         self.state_data = {}
+   def reset(self):
+      self.current_task = random.choice(self.tasks)
+      self.state_data = {"steps": 0}
 
-    def reset(self):
-        self.current_task = random.choice(self.tasks)
-        self.state_data = {"steps": 0}
-        return self.current_task.initial_observation()
+    obs = self.current_task.initial_observation()
+    return Observation(**obs).dict()
 
     def step(self, action_dict):
         action = Action(**action_dict)
