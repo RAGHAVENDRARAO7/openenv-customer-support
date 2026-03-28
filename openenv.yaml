@@ -1,0 +1,13 @@
+name: customer-support-env
+version: 1.0
+
+entry_point: env.environment:CustomerSupportEnv
+
+observation_space:
+  type: Observation
+
+action_space:
+  type: Action
+
+reward:
+  type: Reward

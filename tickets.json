@@ -1,0 +1,5 @@
+[
+  {"id": "1", "type": "classification", "ticket": "I cannot log into my account", "expected": "authentication"},
+  {"id": "2", "type": "response", "ticket": "Payment failed but money deducted", "expected": "refund"},
+  {"id": "3", "type": "multi", "ticket": "App crashes after update", "expected": "technical"}
+]
