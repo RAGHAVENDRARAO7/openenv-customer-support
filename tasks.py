@@ -17,14 +17,17 @@ class Task:
             "history": [],
             "metadata": {"type": self.type}
         }
+@app.get("/health")
+def health():
+    return {"status": "ok"}
 
-    def next_observation(self, action):
-        return {
-            "ticket_id": self.id,
-            "customer_message": self.ticket,
-            "history": [str(action)],
-            "metadata": {"type": self.type}
-        }
+def next_observation(self, action):
+    return {
+        "ticket_id": self.id,
+        "customer_message": self.ticket,
+        "history": [str(action)],  # must be string
+        "metadata": {"type": self.type}
+    }
 
 def load_tasks():
     path = os.path.join("data", "tickets.json")
