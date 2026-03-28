@@ -6,7 +6,8 @@ env = CustomerSupportEnv()
 
 @app.post("/reset")
 def reset():
-    return env.reset()
+    obs = env.reset()
+    return {"observation": obs}
 @app.post("/step")
 def step(action: dict):
     obs, reward, done, info = env.step(action)
